@@ -1,55 +1,63 @@
 <?php
-// Получить остаток деления 7 на 3 */
-var_dump(7 % 3); echo("<br>");
+// посчитать длину массива
+$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
+var_dump(count($arr));
+//переместить первые 4 элемента массива в конец массива
+list($arr[0], $arr[5],) = array($arr[5], $arr[0]);
+list($arr[1], $arr[6],) = array($arr[6], $arr[1]);
+list($arr[2], $arr[7],) = array($arr[7], $arr[2]);
+list($arr[3], $arr[8],) = array($arr[8], $arr[3]);
+echo '<pre>';
+print_r($arr);
+echo '</pre>';
 
-//Получить целую часть сложения 7 и 7,15 */
-$a = 7 + 7.15;
-var_dump(floor($a)); echo("<br>");
+//получить сумму 4,5,6 элемента
+function get_sum(array $arr2, $n) {
+    $sum = 0;
+    for ($i = 3; $i <= $n; $i++) {
+        $sum = $sum + $arr2[$i];
+    }
+return $sum;
+}
+$arr2 = [1, 2, 3, 7, 31, 4, 1, 8, 6]; $n = 5;
+ echo get_sum($arr, $n);
 
-//Получить корень из 25*/
-$b = 25;
-var_dump(sqrt($b)); echo("<br>");
 
-//Десять негритят пошли купаться в море*/
-$text = 'Десять негритят пошли купаться в море';
-$val = 8;
-$text = mb_substr($text, 22, $val);
-echo $text; echo("<br>");
+$firstArr = ['one' => 1, 'two' => 3, 'three' => 3, 'foure' => 5, 'five' => 12];
+$secondArr = ['one' => 1, 'seven' => 22, 'three' => 32, 'foure' => 5, 'five' => 13, 'six' => 37,];
+//найти все элементы которые отсутствуют в первом массиве и присутствуют во втором
+var_dump(array_diff_key($secondArr, $firstArr));
+//найти все элементы которые присутствую в первом и отсутствуют во втором
+var_dump(array_diff_key($firstArr, $secondArr));
+//найти все элементы значения которых совпадают
+$result = array_intersect($firstArr,$secondArr);
+echo '<pre>';
+print_r($result);
+echo '</pre>';
+//найти все элементы значения которых отличается
+$result2 = array_diff($firstArr,$secondArr);
+echo '<pre>';
+print_r($result2);
+echo '</pre>';
 
-//Десять негритят пошли купаться в море*/
-$text_2 = 'Десять негритят пошли купаться в море';
-$val = 1;
-$text_2 = mb_substr($text_2, 16, $val);
-echo $text_2; echo("<br>");
+//получить сумму всех значений в массиве
+function array_multisum(array $arr): float {
+    $sum = array_sum($arr);
+    foreach($arr as $child) {
+        $sum += is_array($child) ? array_multisum($child) : 0;
+    }
+    return $sum;
+}
+$firstArr1 = ['one' => 1, 'two' => ['one' => 1, 'seven' => 22, 'three' => 32,], 'three' => ['one' => 1, 'two' => 2,], 'foure' => 5, 'five' => ['three' => 32, 'foure' => 5, 'five' => 12,],];
+echo array_multisum($firstArr1);
+//получить общее количество элементов в массиве
+echo count($firstArr1,COUNT_RECURSIVE);
 
-// Сделать заглавной первую букву во всех словах фразы (не понимаю как работает функция нашёл решение в гугле)*//
-if(!function_exists('mb_ucwords')) {
-    function mb_ucwords($str) {
-        $str = mb_convert_case($str, MB_CASE_TITLE, "UTF-8");
-        return ($str);
+//получить все вторые элементы вложенных массивов
+foreach($firstArr1 as $key => $massiv){
+    foreach($massiv  as  $inner_key => $value)
+    {
+        echo "[$firstArr1][$inner_key] = $value";
     }
 }
-$str = 'Десять негритят пошли купаться в море';
-echo mb_ucwords($str); echo("<br>");
-
-//Посчитать длинну строки */
-$str_1 = 'Десять негритят пошли купаться в море';
-var_dump(mb_strlen($str)); echo("<br>");
-
-//Правильно ли утверждение true равно 1 */
-var_dump(true == '1'); echo("<br>");
-
-//Правильно ли утверждение false тождественно 0*/
-var_dump(false === '0'); echo("<br>");
-
-//Какая строка длиннее three - три (не работает, я не понял как сравнивать текст кириллицы) */
-
-$str_2 = 'three';
-$str_3 = 'три';
-echo (strnatcasecmp($str_2 , $str_3,)); echo("<br>");
-
-//Какое число больше 125 умножить на 13 плюс 7 или 223 плюс 28 умножить 2*/
-$num1 = 125*13+7;
-$num2 = 223+28*2;
-echo max($num1, $num2);
 ?>
