@@ -55,6 +55,4 @@ echo count($firstArr1,COUNT_RECURSIVE);
 
 //получить все вторые элементы вложенных массивов
 
-echo "Hello World";
-
 ?>
