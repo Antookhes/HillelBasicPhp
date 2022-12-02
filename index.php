@@ -60,6 +60,5 @@ foreach($firstArr1 as $key => $massiv){
         echo "[$firstArr1][$inner_key] = $value";
     }
 }
-
-var_dump();
+]
 ?>
