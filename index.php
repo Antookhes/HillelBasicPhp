@@ -54,12 +54,5 @@ echo array_multisum($firstArr1);
 echo count($firstArr1,COUNT_RECURSIVE);
 
 //получить все вторые элементы вложенных массивов
-foreach($firstArr1 as $key => $massiv){
-    foreach($massiv  as  $inner_key => $value)
-    {
-        echo "[$firstArr1][$inner_key] = $value";
-    }
-}
 
-var_dump();
 ?>
