@@ -56,34 +56,55 @@
 ////получить все вторые элементы вложенных массивов
 //
 ////
-//?>
-Написать HTML форму. Поля должны быть различных типов которые мы разбирали на уроке, но тематика должна быть иная.
-вывести введенные поля в файле server.php.
-<html lang="engl">
-<body>
-<form action="server.php" method="POST">
-      <div>
-        <label>Name and Surname</label>
-        <input type="text" name="full_name">
-      </div>
-    <label> Phone number</label>
-    <input type="number" name="phone_number"><br>
-    <label>Email</label>
-    <input type="email" name="email"><br>
-    <label>Feedback from call or email</label>
-    <input type="radio" name="feedback" value="By Call">
-    <input type="radio" name="feedback" value="By mail"> <br>
-    <input type="submit" value="Send">
-</form>
-
+////?>
+<!--Написать HTML форму. Поля должны быть различных типов которые мы разбирали на уроке, но тематика должна быть иная.-->
+<!--вывести введенные поля в файле server.php.-->
+<!--<html lang="engl">-->
+<!--<body>-->
+<!--<form action="server.php" method="POST">-->
+<!--      <div>-->
+<!--        <label>Name and Surname</label>-->
+<!--        <input type="text" name="full_name">-->
+<!--      </div>-->
+<!--    <label> Phone number</label>-->
+<!--    <input type="number" name="phone_number"><br>-->
+<!--    <label>Email</label>-->
+<!--    <input type="email" name="email"><br>-->
+<!--    <label>Feedback from call or email</label>-->
+<!--    <input type="radio" name="feedback" value="By Call">-->
+<!--    <input type="radio" name="feedback" value="By mail"> <br>-->
+<!--    <input type="submit" value="Send">-->
+<!--</form>-->
+<!---->
 <?php
-// Написать простой массив список (на 5-10 элементов),  сформировать с него ненумерованный список.
-$arr = [1, 2, 3, 4, 5, 8, 7]; ?>
-<ol>
-    <?php
-        foreach ($arr as $value) {
-            echo '<li>' . $value . '</li>';
-        }
-    ?>
-</ol>
-</body>
+//// Написать простой массив список (на 5-10 элементов),  сформировать с него ненумерованный список.
+//$arr = [1, 2, 3, 4, 5, 8, 7]; ?>
+<!--<ul>-->
+<!--    --><?php
+//        foreach ($arr as $value) {
+//            echo '<li>' . $value . '</li>';
+//        }
+//    ?>
+<!--</ul>-->
+<!--</body>-->
+<?php
+//Делить фразу по проблема
+//искать конкретное слово переданное ей в массиве
+function explode_string(string $string): array
+{
+    return explode(' ', $string);
+}
+$test = 'I want to eat meet';
+echo "<pre>";
+var_dump(explode_string($test));
+echo "</pre>";
+
+function finder(array $haystack, string $needle): bool
+{
+    return in_array($needle, $haystack);
+}
+$finder = explode_string($test);
+var_dump(finder(explode_string($test), 'want'));
+
+?>
+
