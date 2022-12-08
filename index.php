@@ -88,23 +88,63 @@
 <!--</ul>-->
 <!--</body>-->
 <?php
-//Делить фразу по проблема
-//искать конкретное слово переданное ей в массиве
-function explode_string(string $string): array
+////Делить фразу по проблема
+////искать конкретное слово переданное ей в массиве
+//function explode_string(string $string): array
+//{
+//    return explode(' ', $string);
+//}
+//$test = 'I want to eat meet';
+//echo "<pre>";
+//var_dump(explode_string($test));
+//echo "</pre>";
+//
+//function finder(array $haystack, string $needle): bool
+//{
+//    return in_array($needle, $haystack);
+//}
+//$finder = explode_string($test);
+//var_dump(finder(explode_string($test), 'want'));
+//Создать функцию принимающую массив произвольной вложенности и определяющий любой элемент номер которого передан параметром во всех вложенных массивах.
+function getElement1(array $data1, array $keys)
 {
-    return explode(' ', $string);
+    foreach($keys as $key) {
+        if (is_array($data1) && array_key_exists($key, $data1)) {
+            $data = $data1[$key];
+        } else {
+            return null;
+        }
+    }
+    return $data;
 }
-$test = 'I want to eat meet';
-echo "<pre>";
-var_dump(explode_string($test));
-echo "</pre>";
+$get_elem_free = array (1, 2, 3, 4,);
+echo getElement1($get_elem_free, [1]);
 
-function finder(array $haystack, string $needle): bool
+//Создать функцию которая считает все буквы b в переданной строке, в случае если передается не строка функция должна возвращать false
+
+function finder_b(string $haystack_1): bool
 {
-    return in_array($needle, $haystack);
+    return strpos($haystack_1, 'b');
 }
-$finder = explode_string($test);
-var_dump(finder(explode_string($test), 'want'));
+$elem_b = "Man with big bag";
+echo finder_b($elem_b);
 
+//Создать функцию которая считает сумму значений всех элементов массива произвольной глубины
+function array_multisum(array $arr): float
+{
+    $sum = array_sum($arr);
+    foreach ($arr as $elem) {
+        $sum += is_array($elem) ? array_multisum($elem) : 0;
+    }
+    return $sum;
+}
+$data = array (array (1, 2, 3), array (10, 20, 30));
+echo array_multisum($data);
+
+//Создать функцию которая определит сколько квадратов меньшего размера можно вписать в квадрат большего размера размер возвращать в float
+
+$l = $x * $a; // сторона большего квадрата
+$l1 = $x; // сторона меньшего квадрата
+$n = $s1 / $s2; // количество меньших квадратов
 ?>
 
