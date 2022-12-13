@@ -1,13 +1,16 @@
 <?php
 
-include "foo.php";
-include "bar_1.php";
-include "bar_2.php";
-include "bar_3.php";
-include "bar_1_1.php";
-include "bar_1_2.php";
-include "bar_2_1.php";
-include "bar_2_2.php";
+include 'vendor/autoload.php';
+use Core\foo;
+use Core\bar_1;
+use Core\bar_2;
+use Core\bar_1_1;
+use Core\bar_1_2;
+use Core\bar_2_1;
+use Core\bar_2_2;
+use Core\bar_3;
+
+
 $a = new bar_1();
 $a->setTest(2);
 var_dump($a->getTest());

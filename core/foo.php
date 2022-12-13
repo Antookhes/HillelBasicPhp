@@ -1,5 +1,6 @@
 <?php
 
+namespace Core;
 class foo
 {
     public int $a = 1;

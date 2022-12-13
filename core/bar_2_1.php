@@ -1,5 +1,6 @@
 <?php
 
+namespace Core;
 class bar_2_1 extends bar_2
 {
     public $g = 20;
