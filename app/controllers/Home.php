@@ -2,10 +2,13 @@
 
 namespace App\controllers;
 
-class Home
+class Home extends Controller
 {
     public function index()
     {
-        echo "Home";
+        $this->render('social/home.php');
+        var_dump($_POST);
+//        include '../public/views/social/home.php';
+
     }
 }
