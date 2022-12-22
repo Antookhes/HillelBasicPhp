@@ -10,9 +10,9 @@ for($i = 0; $i < $arrayLen; $i ++){
     $sum += $array[$i];
     $multi *= $array[$i];
 }
-echo "<pre>";
-var_dump($array);
-echo "</pre>";
+//echo "<pre>";
+//var_dump($array);
+//echo "</pre>";
 
 echo $sum;
 
@@ -32,3 +32,18 @@ echo min($array);
 echo "<br>";
 echo max($array);
 
+foreach ($array as $k => $value)
+{
+    if ($value % 2 == 0)
+        $arr1[] = $value;
+    else
+        $arr2[] = $value;
+}
+
+echo "<pre>";
+var_dump($arr1);
+echo "</pre>";
+
+echo "<pre>";
+var_dump($arr2);
+echo "</pre>";
