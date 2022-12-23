@@ -8,5 +8,13 @@ class Gallery
     {
         echo "Gallery";
     }
+    public function metod()
+    {
+        echo 'Metod Gallery';
+    }
+    public function error()
+    {
+        echo 'Gallery error';
+    }
 }
 

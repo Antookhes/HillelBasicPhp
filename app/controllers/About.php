@@ -8,4 +8,12 @@ class About
     {
         echo "About";
     }
+    public function metod()
+    {
+        echo 'Metod About';
+    }
+    public function error()
+    {
+        echo 'About error';
+    }
 }

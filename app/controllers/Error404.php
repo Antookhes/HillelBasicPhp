@@ -8,4 +8,5 @@ class Error404
     {
         echo "Error404";
     }
+
 }
