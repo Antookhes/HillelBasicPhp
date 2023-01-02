@@ -1,19 +1,15 @@
 <?php
 
 namespace App\controllers;
+use App\models\About as modelAbout;
+use Core\Render;
 
 class About
 {
     public function index()
     {
-        echo "About";
-    }
-    public function metod()
-    {
-        echo 'Metod About';
-    }
-    public function error()
-    {
-        echo 'About error';
+        $model = new modelAbout();
+        $data['newKey'] = $model->index();
+        Render::render('social/about.php', $data);
     }
 }
