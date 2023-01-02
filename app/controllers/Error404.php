@@ -8,5 +8,13 @@ class Error404
     {
         echo "Error404";
     }
+    public function metod()
+    {
+    echo 'Error404 metod';
+    }
+    public function error()
+    {
+    echo 'Metod error404';
+    }
 
 }
