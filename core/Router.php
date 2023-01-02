@@ -11,25 +11,23 @@ class Router
 {
     public function run()
     {
-        $url = explode('/', $_SERVER["REQUEST_URI"]);
-
-//        $classNameAdmin = '\App\controllers\admin\\' . ucfirst($url[1]);
-//        if (end($url[]))
-//        {
-//            $classNameAdmin = new $classNameAdmin();
-//        }
-
-        if (empty($url[1])) {
-                $url = 'home';
+        $arr = explode('/', $_SERVER["REQUEST_URI"]);
+        if (empty($arr[1])) {
+                $arr[1] = 'home';
         }
-        $className = '\App\controllers\\' . ucfirst($url[1]);
+        $className = '\App\controllers\\' . ucfirst($arr[1]);
         if (class_exists($className)) {
             $classObj = new $className();
-        } else {
+        } else{
             $classObj = new Error404();
         }
-
-        $classObj->index();
-
+        if(empty($arr[2])){
+            $arr[2] = 'index';
+        }
+        if(method_exists($classObj, $arr[2])){
+            $classMetod = $arr[2];
+        } else
+            $classMetod = 'error';
+        $classObj -> $classMetod();
     }
 }
