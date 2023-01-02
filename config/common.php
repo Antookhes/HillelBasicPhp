@@ -1,6 +1,7 @@
 <?php
 return [
     "DB" => [
-        "driver" => ""
-    ]
+        "driver" => "mysql",
+        "host" => ""
+    ];
 ]
