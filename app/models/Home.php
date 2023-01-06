@@ -1,15 +1,17 @@
 <?php
 
 namespace App\models;
+use PDO;
+use Core\Orm\Select;
 
 class Home
 {
+    private string $tableName = 'home';
+
     public function index()
     {
-        $dbh = new \PDO('mysql:host=localhost;dbname=myBase', 'root', '');
-        $sth = $dbh->query('SELECT * FROM home');
-        $rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+        $select = new Select;
+        $select->setFields(['id'])->setTableName($this->tableName)->execute();
 
-        return $rows;
     }
 }
