@@ -21,7 +21,7 @@ class Select
     public function execute(): array
     {
         $query = $this->buildQuerry();
-        $query = $this->connector -> query($sql);
+        $query = $this->connector -> query ($sql);
         $rows = $query -> fetchAll(PDO:: FETCH_ASSOC);
         return $rows;
     }

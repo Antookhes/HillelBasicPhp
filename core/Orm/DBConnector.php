@@ -21,7 +21,9 @@ class DBConnector
     {
         $global = include "../../config/common.php";
         $this -> config=$global['DB'];
+        return $global;
     }
+
     private function getDsn(): string
     {
         extract($this->config());
