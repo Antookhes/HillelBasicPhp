@@ -9,7 +9,7 @@ class About
     public function index()
     {
         $model = new modelAbout();
-        $data['newKey'] = $model->index();
+        $data = $model->index();
         Render::render('social/about.php', $data);
     }
 }

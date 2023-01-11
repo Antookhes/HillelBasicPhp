@@ -2,6 +2,9 @@
 return [
     "DB" => [
         "driver" => "mysql",
-        "host" => ""
-    ];
-]
+        "host" => "db",
+        "db_name" => "myBase",
+        "login" => 'root',
+        "password" => 'root'
+    ],
+];
