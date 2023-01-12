@@ -6,10 +6,14 @@ class About
 {
     public function index()
     {
-        return [
-            'd' => 4,
-            'f' => 5,
-            'g' => 6,
-        ];
+        $dbh = new \PDO('mysql:host=localhost;dbname=myBase', 'root', '');
+//        var_dump($dbh);
+        $sth = $dbh->query('SELECT * FROM about');
+        $rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+//        echo '<pre>';
+//        var_dump($rows);
+//        echo '</pre>';
+        return $rows;
+
     }
 }
